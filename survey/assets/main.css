@@ -61,7 +61,15 @@ html {
       text-align: right;
       vertical-align:text-bottom;
   }
-
+  .center
+  {
+    margin: auto;
+  width: 50%;
+  margin-top: 50px;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  }
 
 
 
