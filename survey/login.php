@@ -1,5 +1,6 @@
 <?php
 require "config.php";
+session_set_cookie_params(0);
 session_start();
 
 // Now we check if the data from the login form was submitted, isset() will check if the data exists.
@@ -26,7 +27,9 @@ if ($stmt = $con->prepare('SELECT id, password FROM user WHERE username = ?')) {
             $_SESSION['logged'] = TRUE;
             $_SESSION['name'] = $_POST['username'];
             $_SESSION['id'] = $id;
-            echo 'Welcome ' . $_SESSION['name'] . '!';
+            //echo 'Welcome ' . $_SESSION['name'] . '!';
+           header('Location: survey.php');
+           //session_destroy();
         } else {
             // Incorrect password
             echo 'Incorrect username and/or password!';
