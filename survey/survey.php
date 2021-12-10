@@ -18,9 +18,15 @@
         header('Location: index.html');
         exit;
     }
-
-    $sql = "SELECT question FROM questions;";
+    
+    $sql = "SELECT question,id FROM questions";
+    // $sqlIns = "INSERT INTO answers (answer)
+    // VALUES ('') ";
     $result = $con->query($sql);
+   // print_r($result->fetch_assoc());
+
+   
+    
 /*
     if ($result->num_rows > 0) {
         // output data of each row
@@ -43,6 +49,7 @@
     </head>
     <body>
     <div class="topnav" id="myTopnav">
+        <a href="survey.php" >Ankieta</a>
         <a href="index.html" >Logowanie</a>
         <a href="register.html">Rejestracja</a>
         <a href="about.html">O ankiecie</a>
@@ -51,9 +58,31 @@
         </a>
     </div>
     <div class="center">
-    <?php while($row = $result->fetch_assoc()): 
-        var_dump($row);
-        endwhile?>
+    <form action="save.php" method="POST">
+    <?php 
+    //for($i = 1; $i<=$result2; $i++){
+        // $row = $result->fetch_assoc();
+        // echo($row['question']);
+        $num_rows = $result->num_rows;
+
+        $data = [];
+        if ($num_rows > 0) {
+            $i = 0;
+            while ($row = $result->fetch_assoc()) {
+                $i++;
+               // echo($row['question']);
+                echo "<p>".$row['question']."</p>";
+                echo '<label>Twoja Odpowiedź: </label> <textarea name="answerToQuestion['.$row['id'].']"></textarea> <input type="hidden" name="questionId['.$row['id'].']" value="'.$row['id'].'">';
+            }
+        }
+       //print_r($row);
+    //}
+       ?>
+       <br>
+       <br>
+        <label>Wyślij odpowiedzi: </label> <input type="submit" name="submit" value="Wyślij odpowiedź">
+        </form>
+       
     </div>
 
 
