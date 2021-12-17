@@ -6,7 +6,6 @@ if(isset($_POST['checkbox']))
 {
     $deleted = array();
     $deleted = $_POST['checkbox'];
-    echo "usunięto";
     for($i=0;$i<count($deleted);$i++)
     {
         
@@ -22,6 +21,7 @@ if(isset($_POST['checkbox']))
         $users->execute();
         
     }
+    header("Refresh:0");
 
 }
 ?>
@@ -58,7 +58,7 @@ if(isset($_POST['checkbox']))
        }
        ?>
        <br>
-       <input class="btn btn-primary btn-ghost" type="submit" name="submit" value="Usuń zaznaczonych użytkowników (kliknij 2 razy)">
+       <input class="btn btn-primary btn-ghost" type="submit" name="submit" value="Usuń zaznaczonych użytkowników">
         </form>
     </div>
     <div class="bottom">

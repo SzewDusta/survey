@@ -7,12 +7,17 @@ if(isset($_POST['checkbox'])){
     
         $deleted = array();
         $deleted = $_POST['checkbox'];
+        $countDeleted = count($deleted);
         
         
-        for($i=0;$i<count($deleted);$i++)
+        
+        for($i=0;$i<$countDeleted;$i++)
         {    
+            
             $del_id=$deleted[$i];
             $int_del_id = (int)$del_id;
+            
+
 
             $sql2 = $con->prepare("DELETE FROM answers WHERE question_id = ? ");
             $sql2->bind_param("i", $int_del_id);
@@ -22,6 +27,7 @@ if(isset($_POST['checkbox'])){
             $question->bind_param("i", $int_del_id);
             $question->execute();
         }
+        header("Refresh:0");
             
 }
 ?>
@@ -71,7 +77,7 @@ if(isset($_POST['checkbox'])){
             ?>
             <br>
             <br>
-            <input class="btn btn-primary btn-ghost" type="submit" name="submit" value="Usuń zaznaczone pytania (kliknij 2 razy)" >
+            <input class="btn btn-primary btn-ghost" type="submit" name="submit" value="Usuń zaznaczone pytania" >
             <br>
             <h3>Uwaga, po usunięciu pytania, wszystkie zapisane odpowiedzi na usuwane pytanie zostaną usunięte!</h3>
         </form>
