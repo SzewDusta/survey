@@ -17,13 +17,13 @@
         <i class="fa fa-bars"></i>
         </a>
     </div>
-    <div class="container">
+    <div class="center">
         <p class="item" style="font-size: 32px;">Rejestracja</p>
         <form action = "register.php" method="POST" class="userForm">
-            <label>Podaj swoj nick:</label> <input type="text" name="username"><br>
-            <label>Podaj swoje hasło: </label><input type="password" name="password"><br>
-            <label>Podaj swoj email: </label><input type="text" name="email"><br>
-            <label>Kliknij aby stworzyc konto </label><input type="submit" name="submit" value="Zarejestruj się">
+            <label>Podaj swój nick:</label> <input type="text" name="username" required><br><br>
+            <label>Podaj swoje hasło: </label><input type="password" name="password" required><br><br>
+            <label>Podaj swój email: </label><input type="text" name="email" required><br><br>
+            <input class="btn btn-primary btn-ghost" type="submit" name="submit" value="Zarejestruj się">
 
         </form>
 

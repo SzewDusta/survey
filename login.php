@@ -6,7 +6,9 @@ session_start();
 
 if ( !isset($_POST['username'], $_POST['password']) ) {
 	
-	exit('Please fill both the username and password fields!');
+	echo "<script>alert('Nieprawidłowa nazwa użytkownika lub hasło');</script>";
+    echo "<script>alert('Wypełnij oba formularze');</script>";
+    
 }
 
 if ($stmt = $con->prepare('SELECT id, password FROM user WHERE username = ?')) {
@@ -32,11 +34,12 @@ if ($stmt = $con->prepare('SELECT id, password FROM user WHERE username = ?')) {
            //session_destroy();
         } else {
            
-            echo 'Incorrect username and/or password!';
+            echo "<script>alert('Nieprawidłowa nazwa użytkownika lub hasło');</script>";
+            header('Location: index.html');
         }
     } else {
-       
-        echo 'Incorrect username and/or password!';
+        echo "<script>alert('Nieprawidłowa nazwa użytkownika lub hasło');</script>";
+        header('Location: index.html');
     }
 
 	$stmt->close();

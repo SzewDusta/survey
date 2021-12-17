@@ -8,21 +8,22 @@
         <script src="assets/main.js"></script> 
     </head>
     <body>
+        
     <div class="topnav" id="myTopnav">
         <a href="survey.php" >Ankieta</a>
         <a href="index.html" >Logowanie</a>
         <a href="register.html">Rejestracja</a>
         <a href="about.html">O ankiecie</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()"> 
         <i class="fa fa-bars"></i>
-        </a>
+    </a>
     </div>
-    <div class="container">
+    <div class="center">
         <p class="item" style="font-size: 32px;">Logowanie</p>
         <form action = "login.php" method="POST" class="userForm">
-            <label>Podaj swoj nick: </label><input type="text" name="username" ><br>
-            <label>Podaj swoje hasło: </label><input type="password" name="password"><br>
-            <label>Kliknij aby stworzyć konto </label><input type="submit" name="submit" value="Zaloguj się">
+            <label>Podaj swoj nick: </label><input type="text" name="username"  required ><br><br>
+            <label>Podaj swoje hasło: </label><input type="password" name="password"  required><br><br>
+            <input class="btn btn-primary btn-ghost" type="submit" name="submit" value="Zaloguj się">
 
         </form>
     
@@ -31,6 +32,7 @@
           Copyright by Filip Sęk ©
         </footer>
     </div>
+    
     </body>
 
 

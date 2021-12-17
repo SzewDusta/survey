@@ -10,8 +10,6 @@
     }
     
     $sql = "SELECT question,id FROM questions";
-    // $sqlIns = "INSERT INTO answers (answer)
-    // VALUES ('') ";
     $result = $con->query($sql);
    // print_r($result->fetch_assoc());
 
@@ -60,7 +58,7 @@
                 $i++;
                // echo($row['question']);
                 echo "<h3>".$row['question']."</h3>";
-                echo '<label>Twoja Odpowiedź: </label> <textarea name="answerToQuestion['.$row['id'].']" required></textarea> <input type="hidden" name="questionId['.$row['id'].']" value="'.$row['id'].'">';
+                echo '<textarea name="answerToQuestion['.$row['id'].']" required></textarea><br> <input type="hidden" name="questionId['.$row['id'].']" value="'.$row['id'].'">';
                
         }
     }
@@ -75,7 +73,7 @@
        ?>
        <br>
        <br>
-       <label>Wyślij odpowiedzi: </label> <input type="submit" name="submit" value="Wyślij odpowiedź">
+       <input class="btn btn-primary btn-ghost" type="submit" name="submit" value="Wyślij odpowiedź">
         </form>
        
     </div>

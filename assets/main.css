@@ -5,10 +5,19 @@ body{
     padding: 0;
     color: white;
     min-height: 100%;
-    
+    overflow: hidden;
+   /* background-image: -webkit-gradient(linear, left top, left bottom, from(#6af), to(#bdf));
+	background-image: -webkit-linear-gradient(#6af, #bdf);
+	background-image: -moz-linear-gradient(#6af, #bdf);         chrimstmas edition
+	background-image: linear-gradient(#6af, #bdf);*/
+}
+
+::-webkit-scrollbar { 
+    display: none; 
 }
 html {
     height: 100%;
+    
   }
 
 .topnav {
@@ -16,7 +25,6 @@ html {
     overflow: hidden;
   }
   
-  /* Style the links inside the navigation bar */
   .topnav a {
     float: left;
     display: block;
@@ -27,25 +35,23 @@ html {
     font-size: 17px;
   }
   
-  /* Change the color of links on hover */
   .topnav a:hover {
     background-color: #ddd;
     color: black;
   }
   
-  /* Add an active class to highlight the current page */
   .topnav a.active {
     background-color: #04AA6D;
     color: white;
   }
   
-  /* Hide the link that should open and close the topnav on small screens */
   .topnav .icon {
     display: none;
   }
   #logOut
   {
-    display: inline-block;
+    
+    text-align: right;
   }
   .container
   {
@@ -66,6 +72,10 @@ html {
   }
   .center
   {
+    -webkit-box-shadow: 0px 0px 23px 4px rgba(51, 51, 51, 1);
+-moz-box-shadow: 0px 0px 23px 4px rgba(51, 51, 51, 1);
+box-shadow: 0px 0px 23px 4px rgba(51, 51, 51, 1);
+border-radius: 20px 20px 20px 20px;
     margin: auto;
   width: 50%;
   margin-top: 50px;
@@ -73,18 +83,33 @@ html {
   text-align: center;
   vertical-align: middle;
   
+  
   }
+  form{
+   padding: 10px;
+   
+  }
+.btn
+{
 
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  
+  
+  border-radius: 10px;
 
-
-
-
-
-
-
-
-
-
+  
+}
+.btn:hover
+{
+    background-color: #ddd;
+    color: black;
+}
+  
 
 
   @media screen and (max-width: 600px) {
@@ -95,7 +120,6 @@ html {
     }
   }
   
-  /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
   @media screen and (max-width: 600px) {
     .topnav.responsive {position: relative;}
     .topnav.responsive a.icon {

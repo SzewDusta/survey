@@ -7,23 +7,23 @@ if(isset($_POST['checkbox'])){
     
         $deleted = array();
         $deleted = $_POST['checkbox'];
-        $sql2 = "DELETE FROM answers ";
-        $destroy = $con->query($sql2);
+        
         
         for($i=0;$i<count($deleted);$i++)
         {    
             $del_id=$deleted[$i];
             $int_del_id = (int)$del_id;
+
+            $sql2 = $con->prepare("DELETE FROM answers WHERE question_id = ? ");
+            $sql2->bind_param("i", $int_del_id);
+            $sql2->execute();
+
             $question = $con->prepare( "DELETE FROM questions WHERE id= ?");
             $question->bind_param("i", $int_del_id);
             $question->execute();
         }
             
 }
-          
-
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,16 +32,18 @@ if(isset($_POST['checkbox'])){
         <title>Ankieta</title>
         <link rel="stylesheet" href="../assets/main.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/901f0de3f2.js" crossorigin="anonymous"></script>
         <script src="../assets/main.js"></script> 
     </head>
     <body>
     <div class="topnav" id="myTopnav">
         <a href="addQuestion.php" >Dodaj pytanie</a>
         <a href="deleteQuestion.php" >Usuń pytanie</a>
-        <a href="showAnswers.php">Pokaz odpowiedzi</a>
+        <a href="showAnswers.php">Pokaż odpowiedzi</a>
+        <a href="deleteUser.php">Usuń użytkownika</a>
         
-        <a href="logOut.php">Wyloguj</a>
-        <i class="fas fa-sign-out-alt" id="logOut" style="size: 64px;"></i>
+        <a href="logOut.php">
+        <i class="fas fa-sign-out-alt" id = "logOut"></i> </a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
         
@@ -69,9 +71,9 @@ if(isset($_POST['checkbox'])){
             ?>
             <br>
             <br>
-            <input type="submit" name="submit" value="Usuń zaznaczone pytania">
+            <input class="btn btn-primary btn-ghost" type="submit" name="submit" value="Usuń zaznaczone pytania (kliknij 2 razy)" >
             <br>
-            <h3>Uwaga, po usunięciu pytania, wszystkie zapisane odpowiedzi zostaną usunięte!</h3>
+            <h3>Uwaga, po usunięciu pytania, wszystkie zapisane odpowiedzi na usuwane pytanie zostaną usunięte!</h3>
         </form>
     </div>
     <div class="bottom">
