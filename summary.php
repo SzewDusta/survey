@@ -19,7 +19,7 @@ if ($num_rows > 0) {
         //echo "<p>".$row['question']."</p>";
         //echo '<label>Twoja Odpowiedź: </label> <textarea name="answerToQuestion['.$row['id'].']"></textarea> <input type="hidden" name="questionId['.$row['id'].']" value="'.$row['id'].'">';
         //$sql2 = "SELECT user_id, answer, question_id FROM answers;";
-        
+       
         $stmt = $con->prepare("SELECT user_id, answer, question_id FROM answers WHERE user_id = ? AND question_id=?");
         $question_id=$row['id'];
         $user_id = $_SESSION['id'];
@@ -31,7 +31,9 @@ if ($num_rows > 0) {
         $answer = $result2->fetch_assoc();
       
         $data[$question_id] = ["answer"=> $answer['answer'], 'question'=>$row['question']];
+       
     }
+    
 }
 
 ?>

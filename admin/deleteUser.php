@@ -6,6 +6,7 @@ if(isset($_POST['checkbox']))
 {
     $deleted = array();
     $deleted = $_POST['checkbox'];
+    echo "usunięto";
     for($i=0;$i<count($deleted);$i++)
     {
         

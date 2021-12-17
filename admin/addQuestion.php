@@ -7,17 +7,11 @@
     {
         if(!empty($_POST['question']))
         {
+
         $question = $_POST['question'];
         $stmt = $con->prepare("INSERT INTO questions (question) VALUES (?)");
         $stmt->bind_param("s", $question );
         $stmt->execute();
-        }
-        else
-        {
-            echo '<script type="text/javascript">';
-            echo ' alert("Dodaj pytanie przed kliknieciem!")'; 
-            echo '</script>';
-            
         }
     }
     
@@ -52,7 +46,7 @@
     <div class="center">
         <h2>Dodaj pytanie</h2>
         <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
-            <textarea name="question"></textarea><br><br>
+            <textarea name="question" required></textarea><br><br>
             <input class="btn btn-primary btn-ghost" type="submit" name="submit" value="Dodaj pytanie">
         </form>
     </div>
