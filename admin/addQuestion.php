@@ -22,8 +22,10 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Ankieta</title>
         <link rel="stylesheet" href="../assets/main.css">
+        <link rel="icon" href="../assets/call-center.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="../assets/main.js"></script> 
         <script src="https://kit.fontawesome.com/901f0de3f2.js" crossorigin="anonymous"></script>

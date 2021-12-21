@@ -43,8 +43,10 @@ if ($num_rows > 0) {
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Ankieta</title>
         <link rel="stylesheet" href="assets/main.css">
+        <link rel="icon" href="assets/call-center.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="assets/main.js"></script> 
     </head>
@@ -64,10 +66,11 @@ if ($num_rows > 0) {
                 <?php
                 $i = 0;
                  foreach($data as $data){
-                     $i++;
+                    
+                       echo "<li><p>".$data['question'].": ".$data['answer'] ."</p></li>";
+                       echo "<br>";
                      
-                    echo "<li><p>Pytanie ".$i.": ".$data['answer'] ."</p></li>";
-                    echo "<br>";
+                    
                    // echo($data['answer']);
                     
                }

@@ -5,8 +5,6 @@ body{
     padding: 0;
     color: white;
     height: 100%;
-    
-    
    
   /* background-image: -webkit-gradient(linear, left top, left bottom, from(#6af), to(#bdf));
 	background-image: -webkit-linear-gradient(#6af, #bdf);
@@ -154,4 +152,16 @@ border-radius: 20px 20px 20px 20px;
       display: block;
       text-align: left;
     }
+  }
+  @media screen and (min-height: 600px) {
+    html
+    {
+      font-size: 20px;
+    }
+    .center
+    {
+      margin-bottom: 25px;
+      width: 60%
+    }
+
   }
